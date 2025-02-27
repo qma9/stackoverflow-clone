@@ -29,16 +29,6 @@ async fn main() {
         .await
         .expect("Failed to create Postgres connection pool!");
 
-    // Using slqx, execute a SQL query that selects all questions from the questions table.
-    let recs = sqlx::query!("SELECT * FROM questions")
-        .fetch_all(&pool)
-        .await
-        .unwrap();
-
-    info!("********* Question Records *********");
-    // Log recs with debug formatting using the info! macro
-    info!("{:?}", recs);
-
     let app = Router::new()
         .route("/question", post(create_question))
         .route("/questions", get(read_questions))
