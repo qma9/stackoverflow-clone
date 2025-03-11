@@ -1,6 +1,5 @@
 #[cfg(test)]
 mod answer_tests {
-    use super::*;
     use sqlx::PgPool;
 
     use crate::{
@@ -307,12 +306,11 @@ mod answer_tests {
 
 #[cfg(test)]
 mod question_tests {
-    use super::*;
     use sqlx::PgPool;
 
     use crate::{
         models::{DBError, Question},
-        persistance::questions_dao::{QuestionsDao, QuestionsDaoImpl},
+        persistence::questions_dao::{QuestionsDao, QuestionsDaoImpl},
     };
 
     #[sqlx::test]
